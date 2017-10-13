@@ -7,16 +7,19 @@ export default class App extends Component {
     color: 'red'
   };
 
-  updateCode = () => this.setState({ color: 'pink' });
+  /*
+    Change color here, it should reload magicallay
+  */
+  handleColorUpdate = () => this.setState({ color: 'red' });
 
   render() {
     const { color } = this.state;
     return (
       <div>
-        <div style={{ color }} onClick={this.updateCode}>
-          Hello Zoro
+        <div style={{ color }} onClick={this.handleColorUpdate}>
+          Look good man
         </div>
-        <Button onClick={() => this.setState({ color: 'grey' })} label="hello swordman" />
+        <Button onClick={this.handleColorUpdate} label="hello swordman" />
       </div>
     );
   }

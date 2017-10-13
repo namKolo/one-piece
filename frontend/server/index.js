@@ -1,13 +1,14 @@
+import express from 'express';
+
+import config from '../config/index';
 import { devLayer } from './middleware';
 
-var express = require('express');
 var app = express();
 
-var isProduction = process.env.NODE_ENV === 'production';
-var port = isProduction ? process.env.PORT : 3000;
+const isDevelopment = config.env !== 'production';
+const port = config.server.port;
 
-// We only want to run the workflow when not in production
-if (!isProduction) {
+if (isDevelopment) {
   devLayer(app);
 }
 

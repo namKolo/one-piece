@@ -4,7 +4,7 @@ This app is built for studying purpose. I want to sharp my knowledges about prog
 
 ##### What I 'll cover
 
-###### Frontend
+###### Web
 - Build Tool: `webpack`, `gulp`
 - UI render: `React`, `Veujs`
 - State Management: `Redux`, `MobX`
@@ -13,6 +13,9 @@ This app is built for studying purpose. I want to sharp my knowledges about prog
 - Async rendering
 - How to structure the project
 - How to scale app
+
+#### Mobile
+- Use React Navtive to build first app
 
 ###### Database
 - How to design database

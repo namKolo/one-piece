@@ -1,12 +1,30 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-
+import { AppContainer } from 'react-hot-loader';
+import { render } from 'react-dom';
 import App from './App';
 
-const MOUNT_NODE = document.getElementById('main');
+class AppWrapper {
+  constructor() {
+    render(
+      <AppContainer>
+        <App />
+      </AppContainer>,
+      document.getElementById('main')
+    );
 
-let renderApp = () => {
-  ReactDOM.render(<App />, MOUNT_NODE);
-};
+    if (module.hot) {
+      module.hot.accept('./App', () => {
+        require('./App');
 
-renderApp();
+        render(
+          <AppContainer>
+            <App />
+          </AppContainer>,
+          document.getElementById('main')
+        );
+      });
+    }
+  }
+}
+
+export default new AppWrapper();

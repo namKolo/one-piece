@@ -12,7 +12,6 @@ export const devLayer = app => {
     Attach webpack-dev-middleware to our server to bundle app and hot reload
   */
   const devMiddleware = webpackDevMiddleware(compiler, {
-    noInfo: true,
     publicPath: webpackConfig.output.publicPath,
     quiet: false,
     stats: {

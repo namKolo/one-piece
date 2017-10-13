@@ -10,7 +10,7 @@ export default class App extends Component {
   /*
     Change color here, it should reload magicallay
   */
-  handleColorUpdate = () => this.setState({ color: 'red' });
+  handleColorUpdate = () => this.setState({ color: 'yellow' });
 
   render() {
     const { color } = this.state;

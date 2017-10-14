@@ -1,26 +1,24 @@
-var express = require('express');
-var path = require('path');
-var httpProxy = require('http-proxy');
-var proxy = httpProxy.createProxyServer();
+import path from 'path';
+
+import express from 'express';
+
+import config from '../config/index';
+import { devLayer } from './middleware';
+
 var app = express();
 
-var isProduction = process.env.NODE_ENV === 'production';
-var port = isProduction ? process.env.PORT : 3000;
-var publicPath = path.resolve(process.cwd(), 'public');
+const publicPath = path.resolve(process.cwd(), 'public');
+const isDevelopment = config.env !== 'production';
+const port = config.server.port;
 
-// We point to our static assets
-app.use(express.static(publicPath));
-
-// We only want to run the workflow when not in production
-if (!isProduction) {
-  app.get('/build/*', function(req, res) {
-    proxy.web(req, res, {
-      target: 'http://localhost:8080'
-    });
-  });
+if (isDevelopment) {
+  devLayer(app);
+} else {
+  app.use(express.static(publicPath));
 }
 
 // And run the server
-app.listen(port, function() {
+const server = app.listen(port, function() {
+  server.keepAliveTimeout = 0;
   console.log('Server running on port ' + port);
 });

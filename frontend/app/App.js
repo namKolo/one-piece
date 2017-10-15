@@ -17,7 +17,7 @@ export default class App extends Component {
     return (
       <div>
         <div style={{ color }} onClick={this.handleColorUpdate}>
-          Look good man
+          Look good manff
         </div>
         <Button onClick={this.handleColorUpdate} label="hello swordman" />
       </div>

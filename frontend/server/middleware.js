@@ -13,7 +13,7 @@ export const devLayer = app => {
   */
   const devMiddleware = webpackDevMiddleware(compiler, {
     publicPath: webpackConfig.output.publicPath,
-    quiet: false,
+    noInfo: true,
     stats: {
       colors: true
     }

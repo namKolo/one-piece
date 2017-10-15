@@ -10,23 +10,30 @@ const sourcePath = path.resolve(process.cwd(), 'app/index.js');
 
 export default merge(baseConfig, {
   devtool: 'eval-source-map',
-  entry: ['babel-polyfill', 'webpack-hot-middleware/client', 'react-hot-loader/patch', sourcePath],
+  entry: {
+    app: ['webpack-hot-middleware/client', 'react-hot-loader/patch', sourcePath],
+    vendor: ['react', 'react-dom']
+  },
   target: 'web',
   output: {
     path: '/build/',
     publicPath: '/build/',
-    filename: 'app.js'
+    filename: '[name].js'
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('development'),
-      __DEV__: true
+      'process.env.NODE_ENV': JSON.stringify('development')
     }),
     // enable hot reload webpack feature
     new webpack.HotModuleReplacementPlugin(),
 
-    // prints more readable module names in the browser console on HMR updates
-    new webpack.NamedModulesPlugin(),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor' // Specify the common bundle's name.
+    }),
+
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'runtime' // Specify the common bundle's name.
+    }),
 
     new HtmlWebpackPlugin({
       template: 'public/index.html',

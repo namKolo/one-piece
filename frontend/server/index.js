@@ -7,13 +7,13 @@ import { devLayer } from './middleware';
 
 var app = express();
 
-const publicPath = path.resolve(process.cwd(), 'public');
 const isDevelopment = config.env !== 'production';
 const port = config.server.port;
 
 if (isDevelopment) {
   devLayer(app);
 } else {
+  const publicPath = path.resolve(process.cwd(), 'public', 'build');
   app.use(express.static(publicPath));
 }
 

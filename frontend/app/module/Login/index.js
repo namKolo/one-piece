@@ -1,17 +1,9 @@
 // @flow
 import React, { Component } from 'react';
 
-import {
-  withStyles,
-  Grid,
-  AppBar,
-  Toolbar,
-  Typography,
-  Button,
-  CardHeader,
-  Card,
-  CardContent,
-} from 'material-ui';
+import { withStyles, Grid, AppBar, Toolbar, Typography, Button } from 'material-ui';
+
+import { LoginForm } from 'component/Form';
 
 const styles = theme => ({
   bodyContent: {
@@ -28,6 +20,10 @@ const styles = theme => ({
 });
 
 class HomePage extends Component<any> {
+  handleLogin = (params: { username: string, password: string }) => {
+    console.log(params);
+  };
+
   render() {
     const { classes } = this.props;
     return (
@@ -42,22 +38,7 @@ class HomePage extends Component<any> {
           </Toolbar>
         </AppBar>
         <Grid container direction="column" className={classes.bodyContent}>
-          <Grid item>
-            <Card>
-              <CardHeader title="Feature" />
-              <CardContent>
-                <Typography component="p" />
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item>
-            <Card>
-              <CardHeader title="Change logs" />
-              <CardContent>
-                <Typography component="p" />
-              </CardContent>
-            </Card>
-          </Grid>
+          <LoginForm onLogin={this.handleLogin} />
         </Grid>
       </div>
     );

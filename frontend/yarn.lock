@@ -3458,7 +3458,7 @@ map-obj@^1.0.0, map-obj@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-1.0.1.tgz#d933ceb9205d82bdcf4886f6742bdc2b4dea146d"
 
-material-ui@^1.0.0-beta.17:
+material-ui@1.0.0-beta.15:
   version "1.0.0-beta.17"
   resolved "https://registry.yarnpkg.com/material-ui/-/material-ui-1.0.0-beta.17.tgz#ae09aac7902fdf3b38ec796e03b32461a7ce01fc"
   dependencies:
@@ -4539,6 +4539,10 @@ react-event-listener@^0.5.0, react-event-listener@^0.5.1:
     prop-types "^15.6.0"
     warning "^3.0.0"
 
+react-flow-types@0.2.0-beta.2:
+  version "0.2.0-beta.2"
+  resolved "https://registry.yarnpkg.com/react-flow-types/-/react-flow-types-0.2.0-beta.2.tgz#4f9e07fa60230708d067612750f60c7a9ea42d81"
+
 react-flow-types@^0.2.0-beta.2:
   version "0.2.0-beta.3"
   resolved "https://registry.yarnpkg.com/react-flow-types/-/react-flow-types-0.2.0-beta.3.tgz#93e7e3c95a75a1a941de05b9d7287e3ca6871046"
@@ -4698,7 +4702,7 @@ readdirp@^2.0.0:
     readable-stream "^2.0.2"
     set-immediate-shim "^1.0.1"
 
-recompose@^0.26.0:
+recompose@0.26.0, recompose@^0.26.0:
   version "0.26.0"
   resolved "https://registry.yarnpkg.com/recompose/-/recompose-0.26.0.tgz#9babff039cb72ba5bd17366d55d7232fbdfb2d30"
   dependencies:

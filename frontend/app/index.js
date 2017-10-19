@@ -1,6 +1,10 @@
 import React from 'react';
 import { AppContainer } from 'react-hot-loader';
 import { render } from 'react-dom';
+
+import 'typeface-roboto';
+import 'normalize.css';
+
 import App from './App';
 
 class AppWrapper {
@@ -9,7 +13,7 @@ class AppWrapper {
       <AppContainer>
         <App />
       </AppContainer>,
-      document.getElementById('main')
+      document.getElementById('main'),
     );
 
     if (module.hot) {
@@ -20,7 +24,7 @@ class AppWrapper {
           <AppContainer>
             <App />
           </AppContainer>,
-          document.getElementById('main')
+          document.getElementById('main'),
         );
       });
     }

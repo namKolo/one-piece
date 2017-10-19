@@ -1,17 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 
-import {
-  withStyles,
-  Grid,
-  AppBar,
-  Toolbar,
-  Typography,
-  Button,
-  CardHeader,
-  Card,
-  CardContent,
-} from 'material-ui';
+import { withStyles, Grid, Typography, CardHeader, Card, CardContent } from 'material-ui';
 
 const styles = theme => ({
   bodyContent: {
@@ -22,9 +12,6 @@ const styles = theme => ({
   light: {
     fontWeight: theme.typography.fontWeightLight,
   },
-  flex: {
-    flex: 1,
-  },
 });
 
 class HomePage extends Component<any> {
@@ -32,15 +19,6 @@ class HomePage extends Component<any> {
     const { classes } = this.props;
     return (
       <div>
-        <AppBar position="static" color="primary">
-          <Toolbar>
-            <Typography type="title" color="inherit" className={classes.flex}>
-              Notebook
-            </Typography>
-            <Button color="contrast">Login</Button>
-            <Button color="contrast">Sign up</Button>
-          </Toolbar>
-        </AppBar>
         <Grid container direction="column" className={classes.bodyContent}>
           <Grid item>
             <Card>

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 import { withStyles, Grid } from 'material-ui';
 
-import { LoginForm } from 'component/Form';
+import { SignUpForm } from 'component/Form';
 
 const styles = theme => ({
   bodyContent: {
@@ -16,8 +16,8 @@ const styles = theme => ({
   },
 });
 
-class LoginPage extends Component<any> {
-  handleLogin = (params: { username: string, password: string }) => {
+class RegisterPage extends Component<any> {
+  handleSignUp = (params: { username: string, password: string }) => {
     console.log(params);
   };
 
@@ -26,11 +26,11 @@ class LoginPage extends Component<any> {
     return (
       <div>
         <Grid container direction="column" className={classes.bodyContent}>
-          <LoginForm onLogin={this.handleLogin} />
+          <SignUpForm onSignUp={this.handleSignUp} />
         </Grid>
       </div>
     );
   }
 }
 
-export default withStyles(styles)(LoginPage);
+export default withStyles(styles)(RegisterPage);

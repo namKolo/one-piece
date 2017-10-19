@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 
-import { withStyles, Grid, AppBar, Toolbar, Typography, Button } from 'material-ui';
+import { withStyles, Grid } from 'material-ui';
 
 import { LoginForm } from 'component/Form';
 
@@ -14,12 +14,9 @@ const styles = theme => ({
   light: {
     fontWeight: theme.typography.fontWeightLight,
   },
-  flex: {
-    flex: 1,
-  },
 });
 
-class HomePage extends Component<any> {
+class LoginPage extends Component<any> {
   handleLogin = (params: { username: string, password: string }) => {
     console.log(params);
   };
@@ -28,15 +25,6 @@ class HomePage extends Component<any> {
     const { classes } = this.props;
     return (
       <div>
-        <AppBar position="static" color="primary">
-          <Toolbar>
-            <Typography type="title" color="inherit" className={classes.flex}>
-              Notebook
-            </Typography>
-            <Button color="contrast">Login</Button>
-            <Button color="contrast">Sign up</Button>
-          </Toolbar>
-        </AppBar>
         <Grid container direction="column" className={classes.bodyContent}>
           <LoginForm onLogin={this.handleLogin} />
         </Grid>
@@ -45,4 +33,4 @@ class HomePage extends Component<any> {
   }
 }
 
-export default withStyles(styles)(HomePage);
+export default withStyles(styles)(LoginPage);
